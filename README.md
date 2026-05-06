@@ -1,5 +1,7 @@
 # noyt
 
+![Homebrew](https://img.shields.io/badge/Homebrew-available-brightgreen)
+
 A small CLI to block YouTube system-wide.
 
 I built this because browser extensions are easy to bypass and I kept ending up on YouTube anyway. This blocks it at the system level instead.
