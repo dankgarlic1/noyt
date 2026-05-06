@@ -4,7 +4,6 @@ A small CLI to block YouTube system-wide.
 
 I built this because browser extensions are easy to bypass and I kept ending up on YouTube anyway. This blocks it at the system level instead.
 
----
 
 ## Install
 
@@ -13,7 +12,6 @@ I built this because browser extensions are easy to bypass and I kept ending up 
 brew tap YOUR_USERNAME/noyt  
 brew install noyt  
 
----
 
 ## Usage
 
@@ -29,7 +27,6 @@ It works as a toggle:
 - first run → blocks YouTube
 - next run → unblocks
 
----
 
 ## What it does
 
@@ -39,7 +36,6 @@ It works as a toggle:
 
 Works for Chrome and Brave currently
 
----
 
 ## Notes
 
@@ -48,7 +44,6 @@ Works for Chrome and Brave currently
 - Blocking may take ~1–3 minutes to fully apply
 - Some parts of YouTube may briefly load — that’s normal
 
----
 
 ## Transparency
 
