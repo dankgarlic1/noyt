@@ -9,24 +9,23 @@ I built this because browser extensions are easy to bypass and I kept ending up 
 
 ### Homebrew (recommended)
 
-brew tap YOUR_USERNAME/noyt  
-brew install noyt  
-
+```bash
+brew tap dankgarlic1/noyt && brew install noyt
+```
 
 ## Usage
 
-First run (after install):
+It's just:
 
+```bash
 sudo noyt
-
-After that, it's just:
-
-sudo noyt
+```
 
 It works as a toggle:
 - first run → blocks YouTube
 - next run → unblocks
 
+Run it again anytime to switch states.
 
 ## What it does
 
@@ -34,7 +33,11 @@ It works as a toggle:
 - blocks traffic via macOS firewall (pf)
 - flushes DNS cache
 
-Works for Chrome and Brave currently
+Currently tested with:
+
+- Chrome
+- Brave
+
 
 
 ## Notes
@@ -50,18 +53,20 @@ Works for Chrome and Brave currently
 This project is fully open source.
 
 You can review the entire codebase before running anything:
-👉 https://github.com/dankgarlic1/noyt
+  [github.com/dankgarlic1/noyt](https://github.com/dankgarlic1/noyt)
+
 
 
 ## ⚠️ Warning
 
 This tool modifies system files:
-- /etc/hosts
-- macOS firewall (pf)
+- `/etc/hosts`
+- macOS `pf` firewall rules
 
+Use at your own discretion.
 ## Why this exists
 
-Because “just don’t open YouTube” is a lie.
+Because “just don’t open YouTube” stops working the moment your brain wants dopamine.
 
 
 ## License
