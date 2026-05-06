@@ -1,0 +1,33 @@
+{
+  "name": "noyt",
+  "version": "1.0.0",
+  "description": "Block YouTube system-wide across all browsers with a single command.",
+  "bin": {
+    "noyt": "./dist/index.js"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+     "cli",
+    "productivity",
+    "youtube",
+    "blocker",
+    "focus",
+    "macos",
+    "firewall",
+    "distraction",
+    "chrome",
+    "brave"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}
