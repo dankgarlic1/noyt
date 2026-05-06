@@ -37,7 +37,7 @@ It works as a toggle:
 - blocks traffic via macOS firewall (pf)
 - flushes DNS cache
 
-Works across Chrome, Brave, Safari, etc.
+Works for Chrome and Brave currently
 
 ---
 
@@ -55,9 +55,8 @@ Works across Chrome, Brave, Safari, etc.
 This project is fully open source.
 
 You can review the entire codebase before running anything:
-👉 https://github.com/YOUR_USERNAME/noyt
+👉 https://github.com/dankgarlic1/noyt
 
----
 
 ## ⚠️ Warning
 
@@ -65,15 +64,10 @@ This tool modifies system files:
 - /etc/hosts
 - macOS firewall (pf)
 
-Use at your own risk.
-
----
-
 ## Why this exists
 
 Because “just don’t open YouTube” is a lie.
 
----
 
 ## License
 
