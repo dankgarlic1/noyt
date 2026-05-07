@@ -10,6 +10,12 @@ I built this because browser extensions are easy to bypass and I kept ending up 
 
 https://github.com/user-attachments/assets/59f4026c-9ccf-47f6-b93b-fb485fe88c4c
 
+## Article
+
+I wrote about how I built this, how the networking side actually works, and the weird rabbit hole it sent me down:
+
+[Read on Medium](https://medium.com/@raizadaharshit2004/i-built-a-small-cli-to-block-youtube-system-wide-on-macos-and-accidentally-learned-how-networking-279729cd44ac)
+
 
 ## Install
 
