@@ -8,7 +8,7 @@ I built this because browser extensions are easy to bypass and I kept ending up 
 
 ## Demo
 
-<video controls src="noyt-demo.mp4" title="Title"></video>
+https://github.com/user-attachments/assets/59f4026c-9ccf-47f6-b93b-fb485fe88c4c
 
 
 ## Install
