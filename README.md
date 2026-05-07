@@ -6,6 +6,10 @@ A small CLI to block YouTube system-wide.
 
 I built this because browser extensions are easy to bypass and I kept ending up on YouTube anyway. This blocks it at the system level instead.
 
+## Demo
+
+<video controls src="noyt-demo.mp4" title="Title"></video>
+
 
 ## Install
 
