@@ -41,8 +41,8 @@ Run it again anytime to switch states.
 
 ## What it does
 
-- adds entries to /etc/hosts
-- blocks traffic via macOS firewall (pf)
+- adds entries to /etc/hosts (both IPv4 and IPv6)
+- blocks traffic via macOS firewall (pf) (covering both `inet` and `inet6` traffic to defeat browser DNS-over-HTTPS bypasses)
 - flushes DNS cache
 
 Currently tested with:

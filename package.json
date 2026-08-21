@@ -1,6 +1,6 @@
 {
   "name": "noyt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Block YouTube system-wide across all browsers with a single command.",
   "bin": {
     "noyt": "./dist/index.js"

@@ -31,7 +31,7 @@ function injectHosts() {
     if (content.includes(HOSTS_MARKER))
         return;
     const block = `\n${HOSTS_MARKER}\n` +
-        YOUTUBE_DOMAINS.map((d) => `127.0.0.1 ${d}`).join("\n") +
+        YOUTUBE_DOMAINS.map((d) => `127.0.0.1 ${d}\n::1 ${d}`).join("\n") +
         `\n${HOSTS_MARKER}-end\n`;
     fs_1.default.writeFileSync(HOSTS_FILE, content + block);
 }
@@ -53,21 +53,33 @@ function ensureAnchor() {
     fs_1.default.writeFileSync(PF_CONF, content + block);
 }
 async function resolveIPs() {
-    const ips = new Set();
+    const v4 = new Set();
+    const v6 = new Set();
     for (const domain of YOUTUBE_DOMAINS) {
         try {
             const res = await promises_1.default.resolve4(domain);
-            res.forEach((ip) => ips.add(ip));
+            res.forEach((ip) => v4.add(ip));
+        }
+        catch { }
+        try {
+            const res = await promises_1.default.resolve6(domain);
+            res.forEach((ip) => v6.add(ip));
         }
         catch { }
     }
-    return Array.from(ips);
+    return { v4: Array.from(v4), v6: Array.from(v6) };
 }
-function writePfRules(ips) {
-    const rules = ips.flatMap((ip) => [
-        `block drop out quick proto tcp to ${ip}`,
-        `block drop out quick proto udp to ${ip}`,
-    ]);
+function writePfRules(v4, v6) {
+    const rules = [
+        ...v4.flatMap((ip) => [
+            `block drop out quick proto tcp to ${ip}`,
+            `block drop out quick proto udp to ${ip}`,
+        ]),
+        ...v6.flatMap((ip) => [
+            `block drop out quick inet6 proto tcp to ${ip}`,
+            `block drop out quick inet6 proto udp to ${ip}`,
+        ]),
+    ];
     fs_1.default.writeFileSync(PF_ANCHOR, rules.join("\n") + "\n");
 }
 function clearPfRules() {
@@ -98,7 +110,7 @@ function notifyRestart() {
 }
 async function main() {
     if (process.argv.includes("--version")) {
-        console.log("noyt v1.0.0");
+        console.log("noyt v1.0.1");
         process.exit(0);
     }
     if (process.argv.includes("--help")) {
@@ -129,16 +141,16 @@ Notes:
         return;
     }
     console.log("🔍 Resolving YouTube IPs...");
-    const ips = await resolveIPs();
+    const { v4, v6 } = await resolveIPs();
     injectHosts();
-    writePfRules(ips);
+    writePfRules(v4, v6);
     reloadPf();
     enablePf();
     flushDns();
     notifyRestart();
     console.log(`🔒 YouTube blocked`);
-    console.log(`   hosts entries : ${YOUTUBE_DOMAINS.length} domains → 127.0.0.1`);
-    console.log(`   pf rules      : ${ips.length} IPs (TCP + UDP)`);
+    console.log(`   hosts entries : ${YOUTUBE_DOMAINS.length} domains → 127.0.0.1 and ::1`);
+    console.log(`   pf rules      : ${v4.length} IPv4 + ${v6.length} IPv6 IPs (TCP + UDP)`);
     console.log(`   DNS cache     : flushed`);
     console.log(`\n⚠️  Restart your browser — it holds its own DNS cache.`);
     console.log(`⏳  Blocking may take up to 1–3 minutes to fully take effect.`);
