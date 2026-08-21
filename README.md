@@ -39,6 +39,25 @@ It works as a toggle:
 
 Run it again anytime to switch states.
 
+## Update to latest
+
+### Homebrew
+
+```bash
+brew update && brew upgrade noyt
+````
+
+If Homebrew asks you to trust the tap:
+
+```bash
+brew trust dankgarlic1/noyt
+```
+
+You only need to run the trust command once.
+
+New versions may be released when changes in macOS, browsers, or networking behavior require updates to `noyt`.
+
+
 ## What it does
 
 - adds entries to /etc/hosts (both IPv4 and IPv6)
